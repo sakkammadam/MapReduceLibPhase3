@@ -41,7 +41,7 @@ public:
         // Find the number of lines per file
         int numLinesPerFile = linesPerFile(input_file);
         // Set the number of lines per partition
-        int numLinesPerPartition = 500;
+        int numLinesPerPartition = 2000;
         // Determine number of partitions per file
         int numPartitionsPerFile = ceil(numLinesPerFile/double(numLinesPerPartition));
         std::cout << "Properties for " << input_file << std::endl;

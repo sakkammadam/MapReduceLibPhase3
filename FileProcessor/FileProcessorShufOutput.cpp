@@ -63,7 +63,7 @@ public:
 // Class factories - constructor
 extern "C" FileProcessorBase* createInputObj(
         const std::string &operation,
-        const std::vector<std::map<std::string, std::map<std::string,size_t>>> &shuffle_raw){
+        const std::map<std::string, std::map<std::string,size_t>> &shuffle_raw){
     return new FileProcessorShufOutput(operation,shuffle_raw);
 }
 

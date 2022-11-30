@@ -31,7 +31,7 @@ private:
     // output directory path that will be used to store the results of shuffle operation
     std::string shufflerOutputDirectory;
     // input Reducer data - output of Reducer implementation
-    std::vector<std::map<std::string, std::map<std::string, size_t>>> reducerRawOutput;
+    std::map<std::string, std::map<std::string, size_t>> reducerRawOutput;
     // output directory path that will be used to store the final results
     std::string finalOutputDirectory;
 
@@ -118,11 +118,11 @@ public:
         return this->shufflerOutputDirectory;
     }
     // Setter - set the raw output from the Reducer
-    void setRawReducerOutput(const std::vector<std::map<std::string, std::map<std::string, size_t>>> &raw_reducer_data){
+    void setRawReducerOutput(const std::map<std::string, std::map<std::string, size_t>> &raw_reducer_data){
         this->reducerRawOutput = raw_reducer_data;
     }
     // Getter - get the raw reducer output
-    std::vector<std::map<std::string, std::map<std::string, size_t>>> getRawReducerOutput(){
+    std::map<std::string, std::map<std::string, size_t>> getRawReducerOutput(){
         return this->reducerRawOutput;
     }
     // Setter - set the final output directory
@@ -179,7 +179,7 @@ typedef FileProcessorBase*  destroyShufflerOp_t(FileProcessorBase*);
 // Signifies the Factory that will read Reducer outputs using createInputObj within FileProcessorRedOutput.cpp implementation
 typedef FileProcessorBase* readReducerOp_t(
         const std::string &operation,
-        const std::vector<std::map<std::string, std::map<std::string,size_t>>> &reduced_raw);
+        const std::map<std::string, std::map<std::string,size_t>> &reduced_raw);
 // Signify the Factory that will remove the instance within FileProcessorRedOutput.cpp implementation
 typedef FileProcessorBase*  destroyReducerOp_t(FileProcessorBase*);
 
